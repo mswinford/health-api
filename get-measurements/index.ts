@@ -5,10 +5,9 @@ const httpTrigger: AzureFunction = async (
   req: HttpRequest
 ): Promise<void> => {
   context.log("HTTP trigger function processed a request.");
-  context.log(process.env.DATABASE_URL);
 
   context.res = {
-    body: "Hello, world!",
+    body: process.env.DATABASE_URL.slice(0, 10),
   };
 };
 
